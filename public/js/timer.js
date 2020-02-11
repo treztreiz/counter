@@ -39,7 +39,7 @@ $(function(){
         clearInterval(timer);
         $.post( window.location.href, { time : totalSeconds }, (data) => {
             console.log( data );
-            window.location = Routing.generate('project_show', { id: id });
+            //window.location = Routing.generate('project_show', { id: id });
         }).fail( (error) => {
             console.error(error.responseText);
         });

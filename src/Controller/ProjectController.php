@@ -11,6 +11,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
  * @Route("/project")
@@ -61,6 +62,20 @@ class ProjectController extends AbstractController
     }
 
     /**
+     * @Route("/sessions/{id}", name="project_sessions", methods={"GET","POST"}, options={ "expose" : true })
+     */
+    public function sessions(Request $request, Project $project): Response
+    {      
+        if( !$request->isXmlHttpRequest() ) throw new NotFoundHttpException();
+        
+        $sessions = [];
+        foreach( $project->getSessions() as $session ) {
+            $sessions[] = [ "date" => $session->getDate(), "time" => $session->getTime() ];
+        }
+        return $this->json( $sessions );
+    }
+
+    /**
      * @Route("/{id}/session", name="project_session", methods={"GET","POST"}, options={ "expose" : true })
      */
     public function session(Request $request, Project $project, SessionRepository $sessionRepository): Response
@@ -70,7 +85,7 @@ class ProjectController extends AbstractController
             if( null == $time ) return $this->json('Error : missing POST parameter "time".', 500);
 
             $date = new \DateTime();
-            $session = $sessionRepository->findOneByDate( $date );
+            $session = $sessionRepository->findOneBy( [ "date" => $date, "project" => $project->getId() ] );
             if( null == $session ){
                 $session = new Session();
                 $project->addSession( $session );

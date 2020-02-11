@@ -2,6 +2,10 @@
 
 {% block title %}Project{% endblock %}
 
+{% block stylesheets %}
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.css">
+{% endblock %}
+
 {% block body %}
 
     <nav>
@@ -17,21 +21,29 @@
         <div class="row">
             <div class="col s12">
 
-                <h1>{{ project.name }}</h1>
-
                 <div>Total : {{ project.total }}</div>
                 <div>
                     <a href="{{ path('project_session', {'id': project.id}) }}" class="btn">Nouvelle session</a>
                 </div>
 
-                <a href="{{ path('project_index') }}">back to list</a>
-
                 {# <a href="{{ path('project_edit', {'id': project.id}) }}">edit</a> #}
 
-                {{ include('project/_delete_form.html.twig') }}
+                <canvas id="myChart" data-id="{{ project.id }}" width="400" height="150"></canvas>
+
+                <hr>
+
+                <div style="display:flex;justify-content:space-between;">
+                    <a class="btn" href="{{ path('project_index') }}">back to list</a>
+                    {{ include('project/_delete_form.html.twig') }}
+                </div>
 
             </div>
         </div>
     </div>
     
+{% endblock %}
+
+{% block javascripts %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.js"></script>
+    <script src="{{asset('js/chart.js')}}"></script>
 {% endblock %}
