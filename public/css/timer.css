@@ -1,0 +1,61 @@
+body {
+    background: #ececec;
+}
+
+.timer-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: calc( 100vh - 64px );
+    flex-direction: column;
+}
+
+#timer {
+    background: white;
+    border-radius: 3px;
+}
+
+#timer .timer-zone {
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    border-right: 1px solid #ddd;
+}
+
+#timer input {
+    margin: 0;
+    border: none;
+    overflow: initial;
+    height: auto;
+    text-align: center;
+    font-size: 4.5rem;
+    width: 150px;
+    padding: 20px 0;
+    -webkit-appearance: none;
+}
+
+#timer input[disabled] {
+    color: black;
+}
+
+#timer .timer-zone-label {
+    font-size: .8rem;
+    position: absolute;
+    top: 50%;
+    right: 5px;
+    transform: translate(0,-50%);
+}
+
+#timer .timer-zone:last-child{
+    border:none;
+}
+
+.timer-actions {
+    margin-top: 50px;
+}
+#toggle-btn, #finish-btn {
+    min-width: 200px;
+}
+#finish-btn {
+    display: none;
+}

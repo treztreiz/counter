@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Project{% endblock %}
+
+{% block body %}
+
+    <nav>
+        <div class="nav-wrapper container row">
+            <div class="col s12">
+                <a href="{{ path('project_index') }}" class="breadcrumb">Mes projets</a>
+                <a href="{{ path('project_show', { id: project.id }) }}" class="breadcrumb">{{ project.name }}</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            <div class="col s12">
+
+                <h1>{{ project.name }}</h1>
+
+                <div>Total : {{ project.total }}</div>
+                <div>
+                    <a href="{{ path('project_session', {'id': project.id}) }}" class="btn">Nouvelle session</a>
+                </div>
+
+                <a href="{{ path('project_index') }}">back to list</a>
+
+                {# <a href="{{ path('project_edit', {'id': project.id}) }}">edit</a> #}
+
+                {{ include('project/_delete_form.html.twig') }}
+
+            </div>
+        </div>
+    </div>
+    
+{% endblock %}
