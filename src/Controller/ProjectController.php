@@ -85,9 +85,8 @@ class ProjectController extends AbstractController
      */
     public function session(Request $request, Project $project, SessionRepository $sessionRepository): Response
     {   
-        if( $request->isXmlHttpRequest() ) {
+        if( $request->isXmlHttpRequest() && $request->request->get('time') ) {
             $time = $request->request->get('time');
-            if( null == $time ) return $this->json('Error : missing POST parameter "time".', 500);
 
             $date = new \DateTime();
             $session = $sessionRepository->findOneBy( [ "date" => $date, "project" => $project->getId() ] );

@@ -7,31 +7,35 @@
 <nav>
     <div class="nav-wrapper container row">
         <div class="col s12">
-            <a href="{{ path('project_index') }}" class="breadcrumb"><i class="material-icons left">folder</i>Mes
+            <a href="{{ path('project_index') }}" class="breadcrumb smooth"><i class="material-icons left">folder</i>Mes
                 projets</a>
             <span class="breadcrumb">Nouveau projet</span>
         </div>
     </div>
 </nav>
 
-<main class="wrapper" style="background:rgba(0, 0, 0, 0) linear-gradient(151deg, rgb(250, 51, 150) 0%, rgb(255, 173, 118) 100%) repeat scroll 0% 0% / auto padding-box border-box;">
-    <div class="container">
-        <div class="row">
-            <div class="col s12">
+<main class="wrapper"
+    style="background:rgba(0, 0, 0, 0) linear-gradient(151deg, rgb(250, 51, 150) 0%, rgb(255, 173, 118) 100%) repeat scroll 0% 0% / auto padding-box border-box;">
 
-                <div class="header">
-                    <h1>Nouveau projet</h1>
+    <div class="background-mountains"></div>
+
+    <div id="color-picker" class="main-content scene_element scene_element--fadein">
+
+        <div class="container">
+            <div class="row">
+                <div class="col s12">
+
+                    <div class="header">
+                        <h1>Nouveau projet</h1>
+                    </div>
+
+                    {{ include('project/_form.html.twig') }}
+
                 </div>
-                    
-                {{ include('project/_form.html.twig') }}
-
             </div>
         </div>
     </div>
+
 </main>
 
-{% endblock %}
-
-{% block javascripts %}
-<script src="{{asset('js/color.js')}}"></script>
 {% endblock %}

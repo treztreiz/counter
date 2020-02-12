@@ -1,6 +1,6 @@
-$(function () {
+function initChart() {
 
-    var url = Routing.generate('project_sessions', { id: $('#myChart').data('id') });
+    var url = Routing.generate('project_sessions', { id: $('#chart').data('id') });
     $.post(url, function(data) {
 
         var chartData = [];
@@ -10,7 +10,7 @@ $(function () {
             chartData.push({ x: new Date( data[i].date ).setHours(0,0,0,0), y: data[i].time });
         }
 
-        var ctx = document.getElementById('myChart').getContext('2d');
+        var ctx = document.getElementById('chart').getContext('2d');
         var myChart = new Chart(ctx, {
             type: 'bar',
             data: {
@@ -89,4 +89,4 @@ $(function () {
     });
     
 
-});
+}

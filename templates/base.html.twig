@@ -5,19 +5,33 @@
         <title>Timer</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="{{asset('lib/jquery/keyframes.css')}}">
+        <link rel="stylesheet" href="{{asset('lib/jquery/pageTransitions.css')}}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.css">
         <link rel="stylesheet" href="{{asset('css/timer.css')}}">
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
 
-        {% block body %}{% endblock %}
+        <div id="logo"><img src="{{asset('img/logo.png')}}"></div>
+
+        <div id="main" class="m-scene">
+            {% block body %}{% endblock %}
+        </div>
 
         <script src="{{ asset('bundles/fosjsrouting/js/router.min.js') }}"></script>
         <script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
         <script src="{{asset('js/jquery.min.js')}}"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <script src="{{asset('lib/jquery/jquery.smoothState.js')}}"></script>
+        <script src="{{asset('lib/granim/granim.min.js')}}"></script>
         <script src="{{asset('js/main.js')}}"></script>
-        {% block javascripts %}{% endblock %}
+        {% block javascripts %}
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.js"></script>
+            <script src="{{asset('js/chart.js')}}"></script>
+            <script src="{{asset('js/timer.js')}}"></script>   
+            <script src="{{asset('js/color.js')}}"></script>
+        {% endblock %}
 
     </body>
 </html>

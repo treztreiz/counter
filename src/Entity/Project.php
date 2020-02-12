@@ -36,7 +36,7 @@ class Project
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $color = "rgba(0, 0, 0, 0) linear-gradient(151deg, rgb(250, 51, 150) 0%, rgb(255, 173, 118) 100%) repeat scroll 0% 0% / auto padding-box border-box";
+    private $color = "rgba(0, 0, 0, 0) linear-gradient(90deg, rgb(250, 51, 150) 0%, rgb(255, 173, 118) 100%) repeat scroll 0% 0% / auto padding-box border-box";
 
     public function __construct()
     {

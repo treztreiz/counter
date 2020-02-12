@@ -2,23 +2,25 @@
 
 {% block title %}Project{% endblock %}
 
-{% block stylesheets %}
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.css">
-{% endblock %}
-
 {% block body %}
 
-    <nav>
-        <div class="nav-wrapper container row">
-            <div class="col s12">
-                <a href="{{ path('project_index') }}" class="breadcrumb"><i class="material-icons left">folder</i>Mes projets</a>
-                <a href="{{ path('project_show', { id: project.id }) }}" class="breadcrumb">{{ project.name }}</a>
-            </div>
+<nav>
+    <div class="nav-wrapper container row">
+        <div class="col s12">
+            <a href="{{ path('project_index') }}" class="breadcrumb smooth"><i class="material-icons left">folder</i>Mes
+                projets</a>
+            <a href="{{ path('project_show', { id: project.id }) }}" class="breadcrumb smooth">{{ project.name }}</a>
         </div>
-    </nav>
+    </div>
+</nav>
 
-    <main class="wrapper" style="background:{{ project.color }};">
-        <div class="container" >
+<main class="wrapper" style="background:{{ project.color }};">
+
+    <div class="background-mountains"></div>
+
+    <div class="main-content scene_element scene_element--fadein">
+
+        <div class="container">
             <div class="row">
                 <div class="col s12">
 
@@ -26,29 +28,33 @@
                         <div class="circle-color-wrapper">
                             <div class="circle circle-color" style="background:{{project.color}}"></div>
                         </div>
-                        <h1>{{project.name}}<div class="total"><span><i class="material-icons tiny">access_time</i>{{ project.total }}</span><span><i class="material-icons tiny">date_range</i>{{ project.date|date('d/m/Y') }}</span></div></h1>
+                        <h1>{{project.name}}<div class="total"><span><i
+                                        class="material-icons tiny">access_time</i>{{ project.total }}</span><span><i
+                                        class="material-icons tiny">date_range</i>{{ project.date|date('d/m/Y') }}</span>
+                            </div>
+                        </h1>
                         <div>
-                            <a href="{{ path('project_session', {'id': project.id}) }}" class="btn btn btn-large"><i class="material-icons left">add</i>Nouvelle session</a>
+                            <a href="{{ path('project_session', {'id': project.id}) }}" class="btn btn btn-large smooth"><i
+                                    class="material-icons left">add</i>Nouvelle session</a>
                         </div>
                     </div>
 
                     <div class="project-actions z-depth-5">
-                        <canvas id="myChart" data-id="{{ project.id }}" width="400" height="100"></canvas>
+                        <canvas id="chart" data-id="{{ project.id }}" width="400" height="100"></canvas>
                     </div>
 
                     <div class="project-actions z-depth-5">
-                        <div class="action-back"><a class="btn btn-flat" href="{{ path('project_index') }}"><i class="material-icons left">keyboard_arrow_left</i>Retour</a></div>
-                        <a href="{{ path('project_edit', {'id': project.id}) }}" class="btn btn-large"><i class="material-icons left">edit</i>Editer le projet</a>
+                        <div class="action-back"><a class="btn btn-flat smooth" href="{{ path('project_index') }}"><i
+                                    class="material-icons left">keyboard_arrow_left</i>Retour</a></div>
+                        <a href="{{ path('project_edit', {'id': project.id}) }}" class="btn btn-large smooth"><i
+                                class="material-icons left">edit</i>Editer le projet</a>
                     </div>
 
                 </div>
             </div>
         </div>
-    </main>
-    
-{% endblock %}
+    </div>
 
-{% block javascripts %}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.js"></script>
-    <script src="{{asset('js/chart.js')}}"></script>
+</main>
+
 {% endblock %}

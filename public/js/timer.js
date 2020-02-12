@@ -1,4 +1,4 @@
-$(function(){
+function initTimer() {
 
     var hoursLabel = $("#hours");
     var minutesLabel = $("#minutes");
@@ -50,13 +50,7 @@ $(function(){
         var hours = parseInt( hoursLabel.val() );
         var minutes = parseInt( minutesLabel.val() );
         var seconds = parseInt( secondsLabel.val() );
-
-        console.log( hours );
-        console.log( minutes );
-        console.log( seconds );
-
         totalSeconds = hours * 3600 + minutes * 60 + seconds;
-        console.log( totalSeconds );
     }
 
-});
+}

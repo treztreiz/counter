@@ -7,37 +7,58 @@
 <nav>
     <div class="nav-wrapper container row">
         <div class="col s12">
-            <a href="{{ path('project_index') }}" class="breadcrumb"><i class="material-icons left">folder</i>Mes
+            <a href="{{ path('project_index') }}" class="breadcrumb smooth"><i class="material-icons left">folder</i>Mes
                 projets</a>
         </div>
     </div>
 </nav>
 
-<div class="container">
-    <div class="row">
-        <div class="col s12">
+<main class="wrapper index-wrapper">
 
-            <div class="header">
-                <h1>Mes projets</h1>
-                <a class="btn btn-large" href="{{ path('project_new') }}"><i class="material-icons left">add</i>Nouveau projet</a>
-            </div>
+    <div class="background-mountains"></div>
 
-            {% for project in projects %}
-            <div class="col s12 l6">
-                <div class="project-item z-depth-5" style="background:{{project.color}}">
-                    <div class="project-informations">
-                        <div class="project-label"><div><i class="material-icons tiny">folder</i> {{ project.name }}</div><div class="project-label-infos"><span><i class="material-icons tiny">access_time</i>{{ project.total }}</span><span><i class="material-icons tiny">date_range</i>{{ project.date|date('d/m/Y') }}</span></div></div>
+    <div class="main-content scene_element scene_element--fadein">
+
+        <div class="container">
+            <div class="row">
+                <div class="col s12">
+
+                    <div class="header">
+                        <h1>Mes projets</h1>
+                        <a class="btn btn-large smooth" href="{{ path('project_new') }}"><i
+                                class="material-icons left">add</i>Nouveau projet</a>
                     </div>
-                    <div class="project-item-actions" >
-                        <div><a class="btn btn-floating btn-large" href="{{ path('project_edit', {'id': project.id}) }}"><i class="material-icons">edit</i></a></div>
-                        <div><a class="btn btn-floating btn-large" href="{{ path('project_show', {'id': project.id}) }}"><i class="material-icons">remove_red_eye</i></a></div>
+
+                    {% for project in projects %}
+                    <div class="col s12 l6">
+                        <div class="project-item z-depth-5" style="background:{{project.color}}">
+                            <div class="project-informations">
+                                <div class="project-label">
+                                    <div><i class="material-icons tiny">folder</i> {{ project.name }}</div>
+                                    <div class="project-label-infos"><span><i
+                                                class="material-icons tiny">access_time</i>{{ project.total }}</span><span><i
+                                                class="material-icons tiny">date_range</i>{{ project.date|date('d/m/Y') }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="project-item-actions">
+                                <div><a class="btn btn-floating btn-large smooth"
+                                        href="{{ path('project_edit', {'id': project.id}) }}"><i
+                                            class="material-icons">edit</i></a></div>
+                                <div><a class="btn btn-floating btn-large smooth"
+                                        href="{{ path('project_show', {'id': project.id}) }}"><i
+                                            class="material-icons">remove_red_eye</i></a></div>
+                            </div>
+                        </div>
                     </div>
+                    {% endfor %}
+
                 </div>
             </div>
-            {% endfor %}
-
         </div>
+
     </div>
-</div>
+
+</main>
 
 {% endblock %}
