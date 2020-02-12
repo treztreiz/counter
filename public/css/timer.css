@@ -81,8 +81,16 @@ nav a, .breadcrumb, .breadcrumb:last-child, .breadcrumb:before {
     color: black;
     border: 1px solid black;
 }
-.btn:hover,.btn:focus {
+.btn:focus {
     background: none;
+}
+.btn:not(.btn-flat):hover {
+    background: white;
+    border:  1px solid black!important;
+    color: black!important;
+}
+.btn:hover i,.btn:focus i {
+    color: black!important;
 }
 .btn-flat {
     background: transparent!important;
@@ -151,10 +159,20 @@ nav a, .breadcrumb, .breadcrumb:last-child, .breadcrumb:before {
 .project-item .project-label .project-label-infos span {
     margin-right: 10px;
 }
+.project-item .project-label .project-label-infos span:first-child {
+    background: white;
+    border-radius: 30px;
+    color: black;
+    padding: 2px 10px;
+}
+.project-item .project-label .project-label-infos span:first-child i {
+    color: black;
+}
 
 .project-item .project-label .project-label-infos span i {
     margin-right: 5px;
     vertical-align: middle;
+    margin-top: -3px;
 }
 
 .project-item-actions {
@@ -306,9 +324,10 @@ main.wrapper #canvas-gradient {
 #timer .timer-zone-label {
     font-size: .8rem;
     position: absolute;
-    top: 50%;
-    right: 5px;
+    top: 65%;
+    right: 28px;
     transform: translate(0,-50%);
+    color: black;
 }
 
 #timer .timer-zone:last-child{
@@ -348,10 +367,17 @@ span.modal-close {
 }
 
 .header .total {
-    font-size: 15px;
+    font-size: 18px;
     margin-top: 0;
     line-height: initial;
     padding-left: 5px;
+}
+
+.header .total span:first-child {
+    background: white;
+    border-radius: 30px;
+    color: black;
+    padding: 2px 10px;
 }
 
 .header .total  span {
