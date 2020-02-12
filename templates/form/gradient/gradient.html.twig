@@ -1,0 +1,31 @@
+{% block gradient_widget %}
+
+    <div style="display:none">{{form_widget(form)}}</div>
+    <div class="circle-input circle circle-color modal-trigger z-depth-5" href="#modal-color-{{form.vars.id}}"></div>
+
+    <!-- Modal Structure -->
+    <div id="modal-color-{{form.vars.id}}" class="modal modal-color">
+        <div class="modal-content">
+
+            <h4>Couleur du projet</h4>
+
+            <span class="modal-close"><i class="material-icons">close</i></span>
+            
+            <div class="row">
+                <div class="col s2"><div class="modal-close circle-input circle circle-color" style="background: linear-gradient(151deg, rgb(250, 51, 150) 0%, rgb(255, 173, 118) 100%);"></div></div>
+                <div class="col s2"><div class="modal-close circle-input circle circle-color" style="background: linear-gradient(151deg, #FCE38A 0%, #F38181 100%);"></div></div>
+                <div class="col s2"><div class="modal-close circle-input circle circle-color" style="background: linear-gradient(151deg, #17EAD9 0%, #6078EA 100%);"></div></div>
+                <div class="col s2"><div class="modal-close circle-input circle circle-color" style="background: linear-gradient(151deg, #622774 0%, #C53364 100%);"></div></div>
+                <div class="col s2"><div class="modal-close circle-input circle circle-color" style="background: linear-gradient(151deg, #7117EA 0%, #EA6060 100%);"></div></div>
+                <div class="col s2"><div class="modal-close circle-input circle circle-color" style="background: linear-gradient(151deg, #42E695 0%, #3BB2B8 100%);"></div></div>
+                <div class="col s2"><div class="modal-close circle-input circle circle-color" style="background: linear-gradient(151deg, #F02FC2 0%, #6094EA 100%);"></div></div>
+                <div class="col s2"><div class="modal-close circle-input circle circle-color" style="background: linear-gradient(151deg, #65799B 0%, #5E2563 100%);"></div></div>
+                <div class="col s2"><div class="modal-close circle-input circle circle-color" style="background: linear-gradient(151deg, #184E68 0%, #57CA85 100%);"></div></div>
+                <div class="col s2"><div class="modal-close circle-input circle circle-color" style="background: linear-gradient(151deg, #5B247A 0%, #1BCEDF 100%);"></div></div>
+            </div>
+
+        </div>
+
+    </div>
+
+{% endblock %}

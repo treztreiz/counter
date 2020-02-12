@@ -1,36 +1,36 @@
 {% extends 'base.html.twig' %}
 
-{% block stylesheets %}
-    <link rel="stylesheet" href="{{asset('css/timer.css')}}">
-{% endblock %}
-
 {% block body %}
 
     <nav>
         <div class="nav-wrapper container row">
             <div class="col s12">
-                <a href="{{ path('project_index') }}" class="breadcrumb">Mes projets</a>
+                <a href="{{ path('project_index') }}" class="breadcrumb"><i class="material-icons left">folder</i>Mes projets</a>
                 <a href="{{ path('project_show', { id: project.id }) }}" class="breadcrumb">{{ project.name }}</a>
             </div>
         </div>
     </nav>
 
-    <div class="timer-wrapper">
+    <main class="wrapper timer-wrapper" style="background:{{ project.color }}">
+
+        <div class="header">
+            <h1 class="white-text">{{ project.name }}</h1>
+        </div>
 
         <div>
-            <div id="timer" class="z-depth-5">
-                <div class="timer-zone"><input type="number" id="hours" value="00" min="0"><div class="timer-zone-label">H</div></div> 
-                <div class="timer-zone"><input type="number" id="minutes" value="00" min="0" max="59"><div class="timer-zone-label">M</div></div> 
-                <div class="timer-zone"><input type="number" id="seconds" value="00" min="0" max="59"><div class="timer-zone-label">S</div></div> 
+            <div id="timer">
+                <div class="timer-zone"><input class="z-depth-5" type="number" id="hours" value="00" min="0"><div class="timer-zone-label">H</div></div> 
+                <div class="timer-zone"><input class="z-depth-5" type="number" id="minutes" value="00" min="0" max="59"><div class="timer-zone-label">M</div></div> 
+                <div class="timer-zone"><input class="z-depth-5" type="number" id="seconds" value="00" min="0" max="59"><div class="timer-zone-label">S</div></div> 
             </div>
         </div>
 
         <div class="timer-actions">
             <button id="toggle-btn" class="btn btn-large">Start</button>
-            <button id="finish-btn" class="btn btn-large" data-id="{{ project.id }}">Finish session</button>
+            <button id="finish-btn" class="btn btn-large" data-id="{{ project.id }}"><i class="material-icons left">check</i>Finish session</button>
         </div>
 
-    </div>
+    </main>
 
 {% endblock %}
 

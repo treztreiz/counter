@@ -14,7 +14,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
- * @Route("/project")
+ * @Route("/")
  */
 class ProjectController extends AbstractController
 {
@@ -42,12 +42,17 @@ class ProjectController extends AbstractController
             $entityManager->persist($project);
             $entityManager->flush();
 
-            return $this->redirectToRoute('project_index');
+            return $this->redirectToRoute('project_show', [
+                'id' => $project->getId()
+            ]);
         }
+
+        $referer = $request->headers->get('referer');
 
         return $this->render('project/new.html.twig', [
             'project' => $project,
             'form' => $form->createView(),
+            'referer' => $referer
         ]);
     }
 
@@ -114,12 +119,17 @@ class ProjectController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('project_index');
+            return $this->redirectToRoute('project_show', [
+                'id' => $project->getId()
+            ]);
         }
+
+        $referer = $request->headers->get('referer');
 
         return $this->render('project/edit.html.twig', [
             'project' => $project,
             'form' => $form->createView(),
+            'referer' => $referer
         ]);
     }
 

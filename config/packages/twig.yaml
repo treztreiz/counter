@@ -3,3 +3,6 @@ twig:
     debug: '%kernel.debug%'
     strict_variables: '%kernel.debug%'
     exception_controller: null
+    form_themes:
+      - 'form/materialize_layout.html.twig'
+      - 'form/gradient/gradient.html.twig'

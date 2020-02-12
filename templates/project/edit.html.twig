@@ -1,13 +1,38 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit Project{% endblock %}
+{% block title %}Editer le Projet{% endblock %}
 
 {% block body %}
-    <h1>Edit Project</h1>
 
-    {{ include('project/_form.html.twig', {'button_label': 'Update'}) }}
+<nav>
+    <div class="nav-wrapper container row">
+        <div class="col s12">
+            <a href="{{ path('project_index') }}" class="breadcrumb"><i class="material-icons left">folder</i>Mes
+                projets</a>
+            <a href="{{ path('project_show', { id: project.id }) }}" class="breadcrumb">{{ project.name }}</a>
+        </div>
+    </div>
+</nav>
 
-    <a href="{{ path('project_index') }}">back to list</a>
+<main class="wrapper" style="background:{{ project.color }};">
+    <div class="container">
+        <div class="row">
+            <div class="col s12">
 
-    {{ include('project/_delete_form.html.twig') }}
+                <div class="header">
+                    <h1>Editer le projet</h1>
+                    {{ include('project/_delete_form.html.twig') }}
+                </div>
+
+                {{ include('project/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+
+            </div>
+        </div>
+    </div>
+</main>
+
+{% endblock %}
+
+{% block javascripts %}
+<script src="{{asset('js/color.js')}}"></script>
 {% endblock %}

@@ -11,35 +11,40 @@
     <nav>
         <div class="nav-wrapper container row">
             <div class="col s12">
-                <a href="{{ path('project_index') }}" class="breadcrumb">Mes projets</a>
+                <a href="{{ path('project_index') }}" class="breadcrumb"><i class="material-icons left">folder</i>Mes projets</a>
                 <a href="{{ path('project_show', { id: project.id }) }}" class="breadcrumb">{{ project.name }}</a>
             </div>
         </div>
     </nav>
 
-    <div class="container">
-        <div class="row">
-            <div class="col s12">
+    <main class="wrapper" style="background:{{ project.color }};">
+        <div class="container" >
+            <div class="row">
+                <div class="col s12">
 
-                <div>Total : {{ project.total }}</div>
-                <div>
-                    <a href="{{ path('project_session', {'id': project.id}) }}" class="btn">Nouvelle session</a>
+                    <div class="header">
+                        <div class="circle-color-wrapper">
+                            <div class="circle circle-color" style="background:{{project.color}}"></div>
+                        </div>
+                        <h1>{{project.name}}<div class="total"><span><i class="material-icons tiny">access_time</i>{{ project.total }}</span><span><i class="material-icons tiny">date_range</i>{{ project.date|date('d/m/Y') }}</span></div></h1>
+                        <div>
+                            <a href="{{ path('project_session', {'id': project.id}) }}" class="btn btn btn-large"><i class="material-icons left">add</i>Nouvelle session</a>
+                        </div>
+                    </div>
+
+                    <div class="project-actions z-depth-5">
+                        <canvas id="myChart" data-id="{{ project.id }}" width="400" height="100"></canvas>
+                    </div>
+
+                    <div class="project-actions z-depth-5">
+                        <div class="action-back"><a class="btn btn-flat" href="{{ path('project_index') }}"><i class="material-icons left">keyboard_arrow_left</i>Retour</a></div>
+                        <a href="{{ path('project_edit', {'id': project.id}) }}" class="btn btn-large"><i class="material-icons left">edit</i>Editer le projet</a>
+                    </div>
+
                 </div>
-
-                {# <a href="{{ path('project_edit', {'id': project.id}) }}">edit</a> #}
-
-                <canvas id="myChart" data-id="{{ project.id }}" width="400" height="150"></canvas>
-
-                <hr>
-
-                <div style="display:flex;justify-content:space-between;">
-                    <a class="btn" href="{{ path('project_index') }}">back to list</a>
-                    {{ include('project/_delete_form.html.twig') }}
-                </div>
-
             </div>
         </div>
-    </div>
+    </main>
     
 {% endblock %}
 

@@ -1,17 +1,239 @@
+@import url("https://use.typekit.net/ias3ruz.css");
+
 body {
-    background: #ececec;
+    background: #f7fafc;
+    color: #525252;
+    min-height: 100vh;
+    font-family: 'Nunito';
+}
+
+.z-depth-5 {
+    box-shadow: 0 24px 38px 3px rgba(50, 101, 162, 0.15), 0 9px 46px 8px rgba(63, 95, 177, 0.15), 0 11px 15px -7px rgba(112, 120, 132, 0.15);
+}
+
+.z-depth-1 {
+    box-shadow: 0 2px 2px 0 rgba(50, 101, 162, 0.15), 0 3px 1px -2px rgba(63, 95, 177, 0.15), 0 1px 5px 0 rgba(112, 120, 132, 0.15);
+}
+
+nav {
+    background: white;
+    color: black;
+    box-shadow: none;
+}
+
+input:not([type]), input[type=text]:not(.browser-default), input[type=password]:not(.browser-default), input[type=email]:not(.browser-default), input[type=url]:not(.browser-default), input[type=time]:not(.browser-default), input[type=date]:not(.browser-default), input[type=datetime]:not(.browser-default), input[type=datetime-local]:not(.browser-default), input[type=tel]:not(.browser-default), input[type=number]:not(.browser-default), input[type=search]:not(.browser-default), textarea.materialize-textarea {
+    font-size: 30px;
+    background: white;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0 24px 38px 3px rgba(50, 101, 162, 0.15), 0 9px 46px 8px rgba(63, 95, 177, 0.15), 0 11px 15px -7px rgba(112, 120, 132, 0.15);
+    padding-left: 20px;
+    height: 5rem;
+    box-sizing: border-box;
+}
+input:not([type]):focus:not([readonly]), input[type=text]:not(.browser-default):focus:not([readonly]), input[type=password]:not(.browser-default):focus:not([readonly]), input[type=email]:not(.browser-default):focus:not([readonly]), input[type=url]:not(.browser-default):focus:not([readonly]), input[type=time]:not(.browser-default):focus:not([readonly]), input[type=date]:not(.browser-default):focus:not([readonly]), input[type=datetime]:not(.browser-default):focus:not([readonly]), input[type=datetime-local]:not(.browser-default):focus:not([readonly]), input[type=tel]:not(.browser-default):focus:not([readonly]), input[type=number]:not(.browser-default):focus:not([readonly]), input[type=search]:not(.browser-default):focus:not([readonly]), textarea.materialize-textarea:focus:not([readonly]){
+    box-shadow: 0 2px 2px 0 rgba(50, 101, 162, 0.15), 0 3px 1px -2px rgba(63, 95, 177, 0.15), 0 1px 5px 0 rgba(112, 120, 132, 0.15);
+    border: none;
+}
+
+.input-field>label {
+    padding-left: 20px;
+    color: white;
+}
+input:not([type]):focus:not([readonly])+label, input[type=text]:not(.browser-default):focus:not([readonly])+label, input[type=password]:not(.browser-default):focus:not([readonly])+label, input[type=email]:not(.browser-default):focus:not([readonly])+label, input[type=url]:not(.browser-default):focus:not([readonly])+label, input[type=time]:not(.browser-default):focus:not([readonly])+label, input[type=date]:not(.browser-default):focus:not([readonly])+label, input[type=datetime]:not(.browser-default):focus:not([readonly])+label, input[type=datetime-local]:not(.browser-default):focus:not([readonly])+label, input[type=tel]:not(.browser-default):focus:not([readonly])+label, input[type=number]:not(.browser-default):focus:not([readonly])+label, input[type=search]:not(.browser-default):focus:not([readonly])+label, textarea.materialize-textarea:focus:not([readonly])+label{
+     color: white;;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    font-weight: bold;
+}
+
+nav a, .breadcrumb, .breadcrumb:last-child, .breadcrumb:before {
+    color: #525252;
+}
+
+.btn {
+    border-radius: 60px;
+    background: none;
+    box-shadow: none;
+    color: black;
+    border: 1px solid black;
+}
+.btn:hover,.btn:focus {
+    background: none;
+}
+.btn-flat {
+    background: transparent!important;
+    border:none;
+}
+.btn-floating i {
+    color: black;
+}
+
+.project-item {
+    border-radius: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: stretch;
+    color: white;
+    padding: 0!important;
+    transition: box-shadow .3s;
+    overflow: hidden;
+}
+.project-item .btn-flat {
+    color:white;
+}
+
+.project-item .btn-floating {
+    border: 1px solid white;
+    margin-right: 20px;
+}
+
+.project-item .project-informations {
+    flex: 1;
+}
+
+.project-item .project-label {
+    /* background: #525252; */
+    font-weight: bold;
+    font-size: 20px;
+    padding: 25px 20px;
+    padding-left: 20px;
+    color: white;
+    position: relative;
+    /* border-left: 5px solid #efefef; */
+}
+
+.circle-color-wrapper {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20px;
+}
+
+/* .project-item:hover {
+    box-shadow: 0 2px 2px 0 rgba(50, 101, 162, 0.15), 0 3px 1px -2px rgba(63, 95, 177, 0.15), 0 1px 5px 0 rgba(112, 120, 132, 0.15);
+} */
+
+.project-item .project-label i {
+    color: #efefef;
+}
+.project-item .project-label .project-label-infos {
+    font-size: 12px;
+    color: #efefef;
+}
+.project-item .project-label .project-label-infos span {
+    margin-right: 10px;
+}
+
+.project-item .project-label .project-label-infos span i {
+    margin-right: 5px;
+    vertical-align: middle;
+}
+
+.project-item-actions {
+    display:inline-flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.project-item-actions i {
+    font-size: 2.1rem;
+    color: white;
+}
+/* .project-item .project-label::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 99%;
+    width: 25px;
+    height: 100%;
+    clip-path: polygon(10% 0%, 100% 100%, 0% 100%, 0% 0%);
+    background: #f7fafc;
+  } */
+
+.project-settings {
+    display: flex;
+    align-items: center;
+}
+
+.project-settings .project-name {
+    flex: 1;
+}
+
+.project-actions {
+    display: flex;
+    align-items: center;
+    margin-top: 40px;
+    padding: 40px;
+    flex: 1;
+    background: white;
+    border-radius: 10px;
+}
+.project-actions .action-back {
+    flex: 1;
+}
+
+.project-color {
+    margin-left: 60px;
+    margin-right: 60px;
+}
+
+.input-field>label:not(.label-icon).active {
+    transform: translateY(-25px) scale(0.8);
+}
+.project-color label {
+    padding: 0;
+    transform-origin: 0 0!important;
+    transform: translateY(-30px) scale(0.8);
+}
+
+.header {
+    display:flex;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+
+.header h1 {
+    flex: 1;
+    margin:0;
+}
+
+.circle-color {
+    width: 70px;
+    height: 70px;
+    border: 1px solid white;
+    /* border: 2px solid #efefef; */
+}
+
+.circle-input {
+    cursor: pointer;
+}
+
+main.wrapper {
+    height: calc( 100vh - 64px );
+    color: white;
+}
+main.wrapper *:not(.project-actions):not(.action-back) > .btn {
+    color: white;
+    border: 1px solid white;
+}
+
+main.wrapper .btn-floating i {
+    color: white;
 }
 
 .timer-wrapper {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: calc( 100vh - 64px );
     flex-direction: column;
+    width: 100%;
 }
 
 #timer {
-    background: white;
+    background: none;
     border-radius: 3px;
 }
 
@@ -19,7 +241,6 @@ body {
     display: inline-block;
     position: relative;
     text-align: center;
-    border-right: 1px solid #ddd;
 }
 
 #timer input {
@@ -58,4 +279,41 @@ body {
 }
 #finish-btn {
     display: none;
+}
+
+.modal {
+    border-radius: 30px;
+}
+
+.modal-color .col {
+    margin-bottom: 30px;
+}
+
+.modal h4 {
+    margin-bottom: 40px;
+}
+
+span.modal-close {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+}
+
+.header .total {
+    font-size: 15px;
+    margin-top: 0;
+    line-height: initial;
+    padding-left: 5px;
+}
+
+.header .total  span {
+    margin-right: 10px;
+}
+.header .total span i {
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+.modal {
+    color: black;
 }

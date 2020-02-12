@@ -16,8 +16,8 @@ $(function () {
             data: {
                 datasets: [{
                     label: 'Temps de travail',
-                    backgroundColor: '#25a69a',
-                    borderColor: '#25a69a',
+                    backgroundColor: '#525252',
+                    borderColor: '#525252',
                     fill: false,
                     data: chartData,
                 }]
@@ -44,7 +44,7 @@ $(function () {
 						ticks: {
 							major: {
 								fontStyle: 'bold',
-								fontColor: '#25a69a'
+								fontColor: '#525252'
 							}
 						}
 					}],
@@ -62,7 +62,8 @@ $(function () {
                         },
                         ticks: {
                             userCallback: function(v) { return epoch_to_hh_mm_ss(v) },
-                            stepSize: 60 * 60
+                            stepSize: 60 * 60,
+                            beginAtZero: true
                         },
 					}]
                 },
@@ -79,12 +80,9 @@ $(function () {
         });
 
         function epoch_to_hh_mm_ss(epoch) {
-
             var h = Math.floor( epoch / 3600 );
             var m =  Math.floor( epoch % 3600 / 60 );
             if( m < 10 ) m += "0";
-
-            //console.log(new Date(epoch*1000).toISOString());
             return h + ":" + m;
         }
 

@@ -28,9 +28,20 @@ class Project
      */
     private $sessions;
 
+    /**
+     * @ORM\Column(type="date")
+     */
+    private $date;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $color = "rgba(0, 0, 0, 0) linear-gradient(151deg, rgb(250, 51, 150) 0%, rgb(255, 173, 118) 100%) repeat scroll 0% 0% / auto padding-box border-box";
+
     public function __construct()
     {
         $this->sessions = new ArrayCollection();
+        $this->date = new \DateTime();
     }
 
     public function getId(): ?int
@@ -87,6 +98,34 @@ class Project
         foreach( $this->getSessions() as $session) {
             $total += $session->getTime();
         }
-        return $total;
+
+        $h = floor( $total / 3600 );
+        $m =  floor( $total % 3600 / 60 );
+        if( $m < 10 ) $m .= "0";
+        return $h . ":" . $m;
+    }
+
+    public function getDate(): ?\DateTimeInterface
+    {
+        return $this->date;
+    }
+
+    public function setDate(\DateTimeInterface $date): self
+    {
+        $this->date = $date;
+
+        return $this;
+    }
+
+    public function getColor(): ?string
+    {
+        return $this->color;
+    }
+
+    public function setColor(string $color): self
+    {
+        $this->color = $color;
+
+        return $this;
     }
 }
